@@ -18,3 +18,21 @@ h1{
 span{
     color: aqua;
 }
+.info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.info-items{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 17rem;
+    height: 6rem;
+    background-color: #1b1740;
+    border-radius: 15px;
+    border: 2px solid #211d47;
+    color: white;
+    padding: 10px;
+}
