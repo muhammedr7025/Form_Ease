@@ -46,11 +46,9 @@
         total_no_attendes.innerHTML=parseInt(result[0].no_of_correct)+parseInt(result[0].no_of_wrong)
         for (let i = 0; i <result.length; i++) {
             const div = document.createElement("div");
-            
             div.classList.add("question");
             div.innerHTML = `
             <h4>${result[i].numb}. ${result[i].question}</h4>
-            
             <h4>ans. ${getAnswer(result[i].answer,i)}</h4>
             <div class="bar-container">
               <div class="bar">
@@ -67,7 +65,6 @@
         }
       });
     });
-
     function getAnswer(answer,i){
       let ans = ""
       if(answer=='a'||answer=='A'){
