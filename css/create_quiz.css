@@ -71,6 +71,9 @@ a {
     align-items: center;
 
 }
+.bar p {
+    max-width: 0px;
+}
 .bar-container{
     width: 90%;
     display: flex;
