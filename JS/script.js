@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let most_corrected_answer = document.getElementById('most_corrected_answer');
   let most_wrong_answer=document.getElementById('most_wrong_answer');
   let total_no_attendes=document.getElementById('total_no_attendes');
-  console.log("testing..");
   let result = []
   let highest = 0
-  let lowest
+  let lowest=0
   let qnnohighest=0
   let qnnolowest=0
   fetch(`https://opensheet.elk.sh/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/1`)
@@ -45,6 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         most_wrong_answer.innerHTML=qnnolowest
         most_corrected_answer.innerHTML=qnnohighest
         total_no_attendes.innerHTML=parseInt(result[0].no_of_correct)+parseInt(result[0].no_of_wrong)
-      });        
+      });
     });
 });
