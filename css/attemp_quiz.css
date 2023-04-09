@@ -9,9 +9,6 @@ body {
 h1 {
   color: white;
 }
-.container {
-  background-color: #03001c;
-}
 .container > h1 {
   margin-left: 30px;
   margin-top: 15px;
@@ -31,4 +28,22 @@ footer {
 a {
   text-decoration: none;
   color: white;
+}
+.quiz-container {
+  display: flex;
+  width: 32rem;
+  height: 20rem;
+  background-color: #1b1740;
+  border-radius: 25px;
+  border: 2px solid #211d47;
+}
+.qn-section {
+  color: white;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.q-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
