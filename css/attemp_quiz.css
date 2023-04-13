@@ -31,11 +31,13 @@ a {
 }
 .quiz-container {
   display: flex;
+  flex-direction: column;
   width: 32rem;
   height: 20rem;
   background-color: #1b1740;
   border-radius: 25px;
   border: 2px solid #211d47;
+  padding: 20px;
 }
 .qn-section {
   color: white;
@@ -43,7 +45,54 @@ a {
   padding-top: 20px;
 }
 .q-container {
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.option-container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+  padding: 10px;
+  gap: 10px;
+}
+.option-container .qn-option {
+  padding: 10px;
+  background-color: #373167;
+  border-radius: 10px;
+  color: white;
+}
+.qn-option:hover {
+  background-color: #4f4883;
+}
+.correct {
+  background-color: rgb(135, 231, 135) !important;
+  color: rgb(19, 69, 19) !important;
+  font-weight: bold !important;
+}
+.wrong {
+  background-color: rgb(222, 53, 53) !important;
+}
+
+.qn-footer {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 10px;
+}
+
+.qn-footer .balance-qn {
+  color: white;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 10px 30px;
+  background-color: #373167;
+  text-align: center;
+  border-radius: 12px;
+}
+.btn:hover {
+  background-color: #4f4882;
 }
