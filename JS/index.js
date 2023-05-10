@@ -64,7 +64,7 @@ function generatelink() {
   let sheetlink = document.getElementById("link-input-create").value;
   let sheetName = document.getElementById("sheet-name").value;
   let id = sheetlink.split("/")[5];
-  window.location.href = `/create_quiz.html?hash=${id}&Other=${sheetName}&`;
+  window.location.href = `/Form_Ease/create_quiz.html?hash=${id}&Other=${sheetName}&`;
 }
 function getCode() {
   // Get the id parameter from the URL
