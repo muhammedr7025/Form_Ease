@@ -6,8 +6,7 @@ const popupattempt = document.getElementById("popup-attempt");
 const closeBtnattempt = document.getElementById("close-btn-attempt");
 url = document.getElementById("url_input");
 url_text = document.getElementById("link-input-attempt");
-let sheetlink =
-  "https://docs.google.com/spreadsheets/d/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/edit#gid=0";
+
 function openPopupcreate() {
   popup.style.display = "block";
 }
@@ -62,8 +61,10 @@ function decryptRot47(str) {
   return rot47(str);
 }
 function generatelink() {
-  code = rot47(sheetlink);
-  console.log(code);
+  let sheetlink = document.getElementById("link-input-create").value;
+  let sheetName = document.getElementById("sheet-name").value;
+  let id = sheetlink.split("/")[5];
+  window.location.href = `/create_quiz.html?hash=${id}&Other=${sheetName}&`;
 }
 function getCode() {
   // Get the id parameter from the URL

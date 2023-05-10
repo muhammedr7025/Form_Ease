@@ -18,18 +18,18 @@
       <h1>FORM<span>EASE</span></h1>
       <div class="q-container">
         <div class="quiz-container">
-          <div class="qn-section"><h3>1. Full form of html</h3></div>
+          <div class="qn-section">
+            <h3 id="qn-section"></h3>
+          </div>
           <div class="option-container">
-            <div class="qn-option">option 1</div>
-            <div class="qn-option correct">option 2</div>
-            <div class="qn-option wrong">option 3</div>
-            <div class="qn-option">option 4</div>
+            <button id="qn-option1" class="qn-option"></button>
+            <button id="qn-option2" class="qn-option"></button>
+            <button id="qn-option3" class="qn-option"></button>
+            <button id="qn-option4" class="qn-option"></button>
           </div>
           <div class="qn-footer">
-            <div class="balance-qn">1 of 5</div>
-            <div class="next-qn btn">
-              <p>Next</p>
-            </div>
+            <div id="balance-qn" class="balance-qn"></div>
+            <button id="qn-btn" class="qn-btn"></button>
           </div>
         </div>
       </div>
@@ -37,5 +37,6 @@
     <footer>
       <p>Done By 💙 <a href="">Muhammed R </a></p>
     </footer>
+    <script src="./JS/attempt_quiz.js"></script>
   </body>
 </html>

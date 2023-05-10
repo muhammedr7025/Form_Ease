@@ -83,8 +83,16 @@ a {
 .bar-container .green-bar {
   background-color: rgb(46, 220, 46);
 }
+.bar-container .orange-bar {
+  background-color: rgb(226, 100, 50);
+}
+.bar-container .yellow-bar {
+  background-color: rgb(220, 194, 46);
+}
 .bar-container .red-bar,
-.bar-container .green-bar {
+.bar-container .green-bar,
+.bar-container .yellow-bar,
+.bar-container .orange-bar {
   height: 10px;
   transition: width 3s ease-in-out;
 }

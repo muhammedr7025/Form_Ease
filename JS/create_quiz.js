@@ -8,11 +8,14 @@ let highest = 0;
 let lowest = 0;
 let qnnohighest = 0;
 let qnnolowest = 0;
-let sheetlink =
-  "https://docs.google.com/spreadsheets/d/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/edit#gid=0";
-fetch(
-  `https://opensheet.elk.sh/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/1`
-).then((response) => {
+let urlParams = new URLSearchParams(window.location.search);
+let id = (urlParams.get("hash"));
+let name23 = urlParams.get("Other");
+console.log(name23, id);
+console.log();
+let link = `https://opensheet.elk.sh/${id}/${name23}`;
+console.log(link)
+fetch(`https://opensheet.elk.sh/${id}/${name23}`).then((response) => {
   response.json().then((data) => {
     data.forEach((element) => {
       let item = {
@@ -51,20 +54,12 @@ fetch(
             <h4>ans. ${getAnswer(result[i].answer, i)}</h4>
             <div class="bar-container">
               <div class="bar">
-                <div class="green-bar" style="width:${getPercentage(
-                  "correct",
-                  i
-                )}%"></div>
-                <p>${getPercentage("correct", i)}%</p>
+                <div class="${getColor(i)}" style="width:${getPercentage(
+        i
+      )}%"></div>
+                <p>${getPercentage(i)}%</p>
               </div>
-              <div class="bar">
-                <div class="red-bar" style="width:${getPercentage(
-                  "wrong",
-                  i
-                )}%"></div>
-                  <p>${getPercentage("wrong", i)}%</p>
-                </div>
-            </div>
+              
             `;
       qn_container.appendChild(div);
     }
@@ -83,15 +78,13 @@ function getAnswer(answer, i) {
   }
   return ans;
 }
-function getPercentage(option, i) {
+function getPercentage(i) {
   let total =
     parseInt(result[i].no_of_wrong) + parseInt(result[i].no_of_correct);
   let percentage = 0;
-  if (option === "correct") {
-    percentage = (parseInt(result[i].no_of_correct) * 100) / total;
-  } else if (option === "wrong") {
-    percentage = (parseInt(result[i].no_of_wrong) * 100) / total;
-  }
+
+  percentage = (parseInt(result[i].no_of_correct) * 100) / total;
+
   return parseInt(percentage);
 }
 function rot47(str) {
@@ -109,4 +102,18 @@ function rot47(str) {
 function decryptRot47(str) {
   // To decrypt ROT47, we simply apply the ROT47 encryption again
   return rot47(str);
+}
+function getColor(i) {
+  let percentage = getPercentage(i);
+  let colorBar = "";
+  if (percentage < 26) {
+    colorBar = "red-bar";
+  } else if (percentage < 51) {
+    colorBar = "orange-bar";
+  } else if (percentage < 76) {
+    colorBar = "yellow-bar";
+  } else {
+    colorBar = "green-bar";
+  }
+  return colorBar;
 }
