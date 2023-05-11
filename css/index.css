@@ -60,32 +60,100 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: #03001c;
+  z-index: 9999;
   display: none;
 }
+
+/* The popup content */
 #popup-content-create {
   position: absolute;
+  max-width: 500px; /* set the maximum width of the popup content */
+  width: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
   background-color: #1b1740;
   border-radius: 25px;
   border: 2px solid #211d47;
   color: white;
-  padding: 20px;
-  width: 400px;
-  height: 200px;
   text-align: center;
 }
-#close-btn-create {
+
+/* The heading */
+#popup-content-create h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+/* The paragraph */
+#popup-content-create p {
+  font-size: 14px;
   margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #ccc;
-  border: none;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: justify;
+}
+/* The sheet link */
+.sheet-link {
+  color: #f0ad4e;
+  text-decoration: underline;
+  font-weight: bold;
   cursor: pointer;
 }
+
+/* The form */
+#popup-content-create form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The input fields */
+#popup-content-create input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+#popup-content-create input:focus {
+  outline: none;
+  border: 2px solid #4caf50; /* Change the border color */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Change the box shadow color and intensity */
+}
+/* The button row */
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* add some margin between the form inputs and the buttons */
+}
+
+/* The close button */
+#close-btn-create {
+  padding: 10px 20px; /* add more padding to the left and right of the button */
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #ee6941;
+  color: #fff;
+}
+
+/* The submit button */
+#submit-btn-create {
+  padding: 10px 20px; /* add more padding to the left and right of the button */
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+}
+
 #popup-attempt {
   position: fixed;
   top: 0;
@@ -95,20 +163,22 @@ a {
   background-color: #03001c;
   display: none;
 }
+
 #popup-content-attempt {
   position: absolute;
+  max-width: 500px; /* set the maximum width of the popup content */
+  width: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
   background-color: #1b1740;
   border-radius: 25px;
   border: 2px solid #211d47;
   color: white;
-  padding: 20px;
-  width: 400px;
-  height: 200px;
   text-align: center;
 }
+
 #close-btn-attempt {
   margin-top: 10px;
   padding: 5px 10px;
@@ -116,6 +186,41 @@ a {
   border: none;
   cursor: pointer;
 }
+
+/* The input fields */
+#popup-content-attempt input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+#popup-content-attempt input:focus {
+  outline: none;
+  border: 2px solid #4caf50; /* Change the border color */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Change the box shadow color and intensity */
+}
+#url_input {
+  padding: 10px 20px; /* add more padding to the left and right of the button */
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+}
+
+#close-btn-attempt {
+  padding: 10px 20px; /* add more padding to the left and right of the button */
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #ee6941;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .box-container {
     flex-direction: column;

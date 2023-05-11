@@ -31,7 +31,16 @@
       <div id="popup-create">
         <div id="popup-content-create">
           <h2>Create quiz</h2>
-          <p>Popup Message</p>
+          <p>
+            Duplicate these
+            <a
+              href="https://docs.google.com/spreadsheets/d/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/edit#gid=0"
+              class="sheet-link"
+              >sheet</a
+            >
+            first and add the content to it in the provided template. Then, copy
+            the link and sheet name and paste it in the fields below.
+          </p>
           <form>
             <input
               type="text"
@@ -45,15 +54,22 @@
               name="sheet"
               placeholder="Enter the sheet name"
             />
-            <input type="button" value="Submit" onclick="generatelink()" />
+            <div class="button-row">
+              <button id="close-btn-create">Close</button>
+              <input
+                id="submit-btn-create"
+                type="button"
+                value="Submit"
+                onclick="generatelink()"
+              />
+            </div>
           </form>
-          <button id="close-btn-create">Close</button>
         </div>
       </div>
       <div id="popup-attempt">
         <div id="popup-content-attempt">
           <h2>Attempt quiz</h2>
-          <p>Popup Message</p>
+
           <form>
             <input
               type="text"
@@ -61,9 +77,11 @@
               name="link"
               placeholder="Enter quiz code"
             />
-            <input id="url_input" type="button" value="submit" />
+            <div class="button-row">
+              <button id="close-btn-attempt">Close</button>
+              <input id="url_input" type="button" value="submit" />
+            </div>
           </form>
-          <button id="close-btn-attempt">Close</button>
         </div>
       </div>
       <footer>

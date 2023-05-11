@@ -9,12 +9,12 @@ let lowest = 0;
 let qnnohighest = 0;
 let qnnolowest = 0;
 let urlParams = new URLSearchParams(window.location.search);
-let id = (urlParams.get("hash"));
+let id = urlParams.get("hash");
 let name23 = urlParams.get("Other");
 console.log(name23, id);
 console.log();
 let link = `https://opensheet.elk.sh/${id}/${name23}`;
-console.log(link)
+console.log(link);
 fetch(`https://opensheet.elk.sh/${id}/${name23}`).then((response) => {
   response.json().then((data) => {
     data.forEach((element) => {
@@ -116,4 +116,8 @@ function getColor(i) {
     colorBar = "green-bar";
   }
   return colorBar;
+}
+function createUrl(sId, sName) {
+  sUrl = rot47(sId + "/" + sName);
+  return sUrl;
 }
