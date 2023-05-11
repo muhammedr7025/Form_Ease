@@ -11,10 +11,32 @@ let qnnolowest = 0;
 let urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("hash");
 let name23 = urlParams.get("Other");
-console.log(name23, id);
-console.log();
+const toggleBtn = document.querySelector(".toggle input");
+const copyBtn = document.getElementById("copy-btn");
+
+// Set initial value of toggle button to "off"
+let toggleValue = "0";
+
+// Function to toggle value of toggle button
+function toggle() {
+  toggleValue = toggleValue === "0" ? "1" : "0";
+}
+
+// Event listener for toggle button
+toggleBtn.addEventListener("click", () => {
+  toggle();
+});
+
+function cpyLink() {
+  textToCopy = createUrl();
+  navigator.clipboard
+    .writeText(textToCopy)
+    .then(() => {})
+    .catch((err) => {});
+}
+
 let link = `https://opensheet.elk.sh/${id}/${name23}`;
-console.log(link);
+
 fetch(`https://opensheet.elk.sh/${id}/${name23}`).then((response) => {
   response.json().then((data) => {
     data.forEach((element) => {
@@ -87,22 +109,6 @@ function getPercentage(i) {
 
   return parseInt(percentage);
 }
-function rot47(str) {
-  var result = "";
-  for (var i = 0; i < str.length; i++) {
-    var charCode = str.charCodeAt(i);
-    if (charCode >= 33 && charCode <= 126) {
-      result += String.fromCharCode(33 + ((charCode + 14) % 94));
-    } else {
-      result += str.charAt(i);
-    }
-  }
-  return result;
-}
-function decryptRot47(str) {
-  // To decrypt ROT47, we simply apply the ROT47 encryption again
-  return rot47(str);
-}
 function getColor(i) {
   let percentage = getPercentage(i);
   let colorBar = "";
@@ -117,7 +123,8 @@ function getColor(i) {
   }
   return colorBar;
 }
-function createUrl(sId, sName) {
-  sUrl = rot47(sId + "/" + sName);
+function createUrl() {
+  uqid = id + "/" + name23 + "/" + toggleValue;
+  sUrl = `https://muhammedr7025.github.io/Form_Ease//attempt_quiz.html?code=${uqid}`;
   return sUrl;
 }

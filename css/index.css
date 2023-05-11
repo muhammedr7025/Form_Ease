@@ -166,7 +166,7 @@ a {
 
 #popup-content-attempt {
   position: absolute;
-  max-width: 500px; /* set the maximum width of the popup content */
+  max-width: 250px; /* set the maximum width of the popup content */
   width: 80%;
   top: 50%;
   left: 50%;

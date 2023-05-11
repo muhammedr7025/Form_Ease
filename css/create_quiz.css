@@ -109,3 +109,75 @@ a {
     gap: 10px;
   }
 }
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+
+  top: 15px;
+  right: 15px;
+
+  gap: 10px;
+}
+/* Style for the toggle button */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle input {
+  display: none;
+}
+
+/* Style for the sliding effect */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Style for the round slider */
+.slider.round {
+  border-radius: 34px;
+}
+
+/* Style for the sliding effect when the toggle button is clicked */
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Style for the toggle button when it's checked */
+input:checked + .slider.round:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Style for the copy button */
+#copy-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #008cba;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

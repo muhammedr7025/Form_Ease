@@ -39,35 +39,22 @@ popupLinkattempt.addEventListener("click", function (event) {
   event.preventDefault(); // prevent the default link behavior
   openPopupattempt();
 });
-url.addEventListener("click", function () {
-  console.log(url_text.value);
-  window.open(`/attempt_quiz.html?code=${url_text.value}`);
-  console.log(getCode());
-});
-function rot47(str) {
-  var result = "";
-  for (var i = 0; i < str.length; i++) {
-    var charCode = str.charCodeAt(i);
-    if (charCode >= 33 && charCode <= 126) {
-      result += String.fromCharCode(33 + ((charCode + 14) % 94));
-    } else {
-      result += str.charAt(i);
-    }
-  }
-  return result;
-}
-function decryptRot47(str) {
-  // To decrypt ROT47, we simply apply the ROT47 encryption again
-  return rot47(str);
-}
+// url.addEventListener("click", function () {
+//   console.log(url_text.value);
+
+//   console.log(getCode());
+// });
+
 function generatelink() {
   let sheetlink = document.getElementById("link-input-create").value;
   let sheetName = document.getElementById("sheet-name").value;
   let id = sheetlink.split("/")[5];
   window.location.href = `/Form_Ease/create_quiz.html?hash=${id}&Other=${sheetName}&`;
 }
+function openQuiz() {
+  window.location.href = `/Form_Ease/attempt_quiz.html?code=${url_text.value}`;
+}
 function getCode() {
-  // Get the id parameter from the URL
   const urlParams = new URLSearchParams(window.location.search);
   const myId = urlParams.get("code");
   console.log(myId);

@@ -7,11 +7,16 @@ const qnOption2 = document.getElementById("qn-option2");
 const qnOption3 = document.getElementById("qn-option3");
 const qnOption4 = document.getElementById("qn-option4");
 const answerButton = document.getElementById("answer-buttons");
+let urlParams = new URLSearchParams(window.location.search);
+let id = urlParams.get("code").split("/");
+sheetId = id[0];
+sheetName = id[1];
+sheetMode = id[2];
+let crctAns = [];
+let wrngAns = [];
 let currentQnIndex = 0;
 result = [];
-fetch(
-  `https://opensheet.elk.sh/1xa5bCHfBd3wcRsMSWNGC-WT0FsOntJeB2faru0R1GcE/1`
-).then((response) => {
+fetch(`https://opensheet.elk.sh/${sheetId}/${sheetName}`).then((response) => {
   response.json().then((data) => {
     data.forEach((element) => {
       let item = {
@@ -60,11 +65,15 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const isCorrect = selectedButton.dataset.answer === "true";
-  console.log(isCorrect);
+
   if (isCorrect) {
     selectedButton.classList.add("correct");
+    crctAns.push(1);
+    wrngAns.push(0);
   } else {
     selectedButton.classList.add("incorrect");
+    crctAns.push(0);
+    wrngAns.push(1);
   }
   Array.from(answerButton.children).forEach((button) => {
     if (button.dataset.answer === "true") {
@@ -81,7 +90,6 @@ function handleNextButton() {
   }
 }
 nextBtn.addEventListener("click", () => {
-  console.log(result.length);
   if (currentQnIndex < result.length) {
     handleNextButton();
   } else {
